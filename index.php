@@ -10,17 +10,19 @@
 <body>
     
     <div class="container">
-    <h2>LOGIN</h2>
-    <div class="form-container">
-        <form action="">
-            <label><b>Usuário</b></label>
-            <input type="text" placeholder="Usuário" required><br>
+     <h2>LOGIN</h2>
+         <div class="form-container">
+             <form action="pages/index_validar.php" method="POST">
+                <label><b>Usuário</b></label>
+                <input type="text" placeholder="Usuário" required="" name="txtUsuario"><br>
 
-            <label><b>Senha</b></label>
-            <input type="password" placeholder="Senha" required><br>
+                <label><b>Senha</b></label>
+                <input type="password" placeholder="Senha" required="" name="txtSenha"><br>
 
-            <button type='Submit'>Enviar</button>
-        </form></div>
+                <button type="submit">Enviar</button>
+              </form>
+          </div>
+        
     </div>
 
 </body>
