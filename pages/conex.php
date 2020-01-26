@@ -3,7 +3,7 @@
     function abrirBanco(){
         $dns = "mysql:localhost;dbname=draco";
         $usuario = "root";
-        $senha = "";
+        $senha = "r3d3g3nirvana";
 
 
         $opcoes = array(

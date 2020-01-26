@@ -9,35 +9,26 @@
 
     $pdo = abrirBanco();
 
-    $pegarUsuario = trim($_POST["txtUsuario"]);
-    $pegarSenha   = trim($_POST["txtSenha"]);
+    $txtUsuario = trim($_POST["txtUsuario"]);
+    $txtSenha = trim($_POST["txtSenha"]);
 
-    //Valida Login
-    $validarLogin = $pdo->prepare ("SELECT usu_usuario, usu_senha
-                            FROM sys_usuario
-                            WHERE usu_usuario = ? AND usu_senha = ?");
+    $compararDados = $pdo->prepare ("SELECT usu_usuario , usu_senha 
+        FROM  sys_usuario
+        WHERE usu_usuario = ? AND  usu_senha = ?");
 
+    $compararDados->bindValue(1, $txtUsuario);
+    $compararDados->bindValue(2, $txtSenha);
+    $compararDados->execute();
 
-    $validarLogin->bindValue(1, $pegarUsuario);
-    $validarLogin->bindValue(2, $pegarSenha);
-    $validarLogin->execute();
+    $validacao = $compararDados->fetchObject();
 
-    $validacao = $validarLogin->fetchObject();
-
-
-    if($validacao):
+    if($validacao) {
         $_SESSION["logado"] = 1;
         $id_user = $validacao->usu_usuario;
         $_SESSION["usu_usuario"] = $id_user;
         $_SESSION["nome_usuario"] = $pegarUsuario;
-        echo "AGORA FUNCIONOU";
-
-    else:
-        /*
-        echo "<script type='text/javascript'> alert ('SENHA INCORRETA!')</script>";
-        echo "<script type='text/javascript'> location.href='../index.php?erro=login'</script>";
-        */
-        echo 'NÃO DEU CERTO';
-    endif;
-
+        echo "<script type='text/javascript'> location.href='dashbord.php'</script>";
+    } else {
+        echo "AINDA NÃO DEU CERTO";
+    }
 ?>
