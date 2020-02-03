@@ -1,6 +1,14 @@
 <?php
 
-    function abrirBanco(){
+define('HOST', 'drattoolog.deoxus.com.br');
+define('USUARIO', 'deoxus52_rodrigo');
+define('SENHA', 'rodrigo');
+define('DB', 'deoxus52_db_draco');
+
+
+$conectar = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
+
+    /*function abrirBanco(){
         $dns = "mysql:localhost;dbname=draco";
         $usuario = "root";
         $senha = "r3d3g3nirvana";
@@ -20,6 +28,6 @@
         }
         return $pdo;
 
-    }
+    }*/
 
 ?>
