@@ -30,9 +30,6 @@ session_start();
           </div>
         
     </div>
-    <footer>
-        <p>&copy;2020 - Todos os direitos reservados.</p>
-    </footer>
 
 </body>
 </html>
